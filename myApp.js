@@ -1,7 +1,7 @@
 var express = require('express');
 require('dotenv/config');
 var app = express();
-absolutePath = __dirname + "/views/index.html";
+let absolutePath = __dirname + "/views/index.html";
 
 // Normal usage
 app.use(express.static(__dirname + "/public"));
@@ -10,16 +10,21 @@ app.use(express.static(__dirname + "/public"));
 app.use("/public", express.static(__dirname + "/public"));
 
 app.get('/', (req, res) => {
-    // res.send('Hello Express');
+
     res.sendFile(absolutePath);
 });
 
 
 app.get('/json', (req, res) => {
-    let data = "Hello json";
+    let message = "Hello json";
+    let response = "";
+
     if (process.env.MESSAGE_STYLE === "uppercase") {
-        data = data.toUpperCase();
+        response = message.toUpperCase();
+    } else {
+        response = message;
     }
+    let data = { "message": response };
     res.json(data);
 })
 
