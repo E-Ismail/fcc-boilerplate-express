@@ -14,6 +14,11 @@ app.get('/', (req, res) => {
 });
 
 
+app.get('/json', (req, res) => {
+    let data = {"message":"Hello json"};
+    res.json(data);
+})
+
 
 
 
