@@ -11,14 +11,15 @@
 	"version": "0.1.1",
 	"license": "MIT",
 	"dependencies": {
-		"express": "^4.14.0",
 		"body-parser": "^1.15.2",
 		"cookie-parser": "^1.4.3",
+		"dotenv": "^9.0.2",
+		"express": "^4.14.0",
 		"fcc-express-bground": "https://github.com/freeCodeCamp/fcc-express-bground-pkg.git"
 	},
 	"main": "server.js",
 	"scripts": {
 		"start": "node server.js",
-		"start:dev":"nodemon server.js"
+		"start:dev": "nodemon server.js"
 	}
 }
