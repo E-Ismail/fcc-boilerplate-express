@@ -1,6 +1,10 @@
 {
 	"name": "fcc-learn-node-with-express",
-	"version": "0.1.0",
+	"author": "Echcherate Ismail",
+	"description": "This is a description for the Apis and Microservices modules. Basic Node and Express chap. ",
+	"keywords": ["Apis","Microservices","Design","freecodecamp"],
+	"version": "0.1.1",
+	"license": "MIT",
 	"dependencies": {
 		"express": "^4.14.0",
 		"body-parser": "^1.15.2",
