@@ -8,6 +8,15 @@ app.use(express.static(__dirname + "/public"));
 
 // Assets at the /public route
 app.use("/public", express.static(__dirname + "/public"));
+app.use(function myLogger(req, res, next) {
+    let method = req.method;
+    let path = req.path;
+    let ip = req.ip;
+    console.log(method + " " + path + " - " + ip);
+    next();
+}
+);
+
 
 app.get('/', (req, res) => {
 
