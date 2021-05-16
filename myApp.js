@@ -1,5 +1,6 @@
 var express = require('express');
 require('dotenv/config');
+var bodyParser = require('body-parser');
 var app = express();
 let absolutePath = __dirname + "/views/index.html";
 
@@ -18,6 +19,9 @@ app.use(function myLogger(req, res, next) {
     next();
 }
 );
+
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json());
 
 const timeMdware = (req, res, next) => {
     //timeZone should match in order to pass this challenge
@@ -67,6 +71,8 @@ app.get('/name', (req, res) => {
     });
 
 });
+
+
 
 
 
