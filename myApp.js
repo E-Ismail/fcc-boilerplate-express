@@ -8,6 +8,8 @@ app.use(express.static(__dirname + "/public"));
 
 // Assets at the /public route
 app.use("/public", express.static(__dirname + "/public"));
+
+//Middleware used by app.
 app.use(function myLogger(req, res, next) {
     let method = req.method;
     let path = req.path;
@@ -17,6 +19,16 @@ app.use(function myLogger(req, res, next) {
 }
 );
 
+const timeMdware = (req, res, next) => {
+    req.time = new Date().toString();
+    next();
+}
+
+//Middleware in a Route.
+app.get('/now', timeMdware, (req, res) => {
+    let time = { "time": req.time };
+    res.json(time);
+});
 
 app.get('/', (req, res) => {
 
