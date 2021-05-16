@@ -20,6 +20,7 @@ app.use(function myLogger(req, res, next) {
 );
 
 const timeMdware = (req, res, next) => {
+    //timeZone should match in order to pass this challenge
     req.time = new Date().toString();
     next();
 }
@@ -27,6 +28,7 @@ const timeMdware = (req, res, next) => {
 //Middleware in a Route.
 app.get('/now', timeMdware, (req, res) => {
     let time = { "time": req.time };
+    console.log(time)
     res.json(time);
 });
 
@@ -47,7 +49,14 @@ app.get('/json', (req, res) => {
     }
     let data = { "message": response };
     res.json(data);
-})
+});
+
+//Get Route Parameter Input from the Client
+app.get('/:word/echo', (req, res) => {
+
+    let echo = {"echo":req.params.word}
+    res.json(echo);
+});
 
 
 
