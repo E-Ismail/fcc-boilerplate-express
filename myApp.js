@@ -54,12 +54,19 @@ app.get('/json', (req, res) => {
 //Get Route Parameter Input from the Client
 app.get('/:word/echo', (req, res) => {
 
-    let echo = {"echo":req.params.word}
+    let echo = { "echo": req.params.word }
     res.json(echo);
 });
 
 
+app.get('/name', (req, res) => {
+    let firstName = req.query.first;
+    let lastName = req.query.last;
+    res.json({
+        name: `${firstName} ${lastName}`
+    });
 
+});
 
 
 
