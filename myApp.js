@@ -20,7 +20,7 @@ app.use(function myLogger(req, res, next) {
 );
 
 const timeMdware = (req, res, next) => {
-    req.time = new Date().toString();
+    req.time = new Date().toUTCString();
     next();
 }
 
