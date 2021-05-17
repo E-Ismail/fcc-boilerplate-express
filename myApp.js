@@ -27,7 +27,7 @@ const timeMdware = (req, res, next) => {
 //Middleware in a Route.
 app.get('/now', timeMdware, (req, res) => {
     let time = { "time": req.time };
-    res.send(time);
+    res.json(time);
 });
 
 app.get('/', (req, res) => {
